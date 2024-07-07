@@ -3,70 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Would you like to go out with me?</title>
+    <title>Leticia Invitation</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            text-align: center;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
             margin: 0;
-            padding: 0;
         }
         .container {
-            max-width: 600px;
-            margin: 100px auto;
             background-color: #fff;
-            border-radius: 10px;
-            padding: 30px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            padding: 40px;
+            max-width: 500px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+        }
+        .container:hover {
+            transform: translateY(-10px);
         }
         h1 {
             color: #333;
+            margin-bottom: 20px;
         }
         p {
-            color: #666;
+            color: #555;
             font-size: 18px;
-            line-height: 1.6;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
         }
         .place-image {
             width: 100%;
             max-width: 400px;
-            border-radius: 10px;
+            border-radius: 15px;
             margin-bottom: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
         button {
-            background-color: #4CAF50;
+            background-color: #ff5e62;
             color: white;
             border: none;
             padding: 15px 32px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
             font-size: 16px;
             margin-top: 20px;
             cursor: pointer;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
+            border-radius: 50px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
         }
         button:hover {
-            background-color: #45a049;
+            background-color: #ff877d;
+            transform: translateY(-5px);
         }
         .icon {
             font-size: 24px;
             margin-right: 10px;
+        }
+        .footer {
+            margin-top: 30px;
+            font-size: 14px;
+            color: #888;
+        }
+        .chat-button {
+            background-color: #4CAF50;
+            margin-top: 10px;
+        }
+        .chat-button:hover {
+            background-color: #45a049;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Would you like to go out with me?</h1>
-        <img class="place-image" src="https://via.placeholder.com/400" alt="X Place">
-        <p>Hey [Her Name], I've been thinking it would be amazing to spend some time together. How about we go to [X place]? I heard it's really nice!</p>
-        <button onclick="alert('Yes!')">Yes! <i class="icon fas fa-heart"></i></button>
-        <p style="margin-top: 20px;">Not sure yet? Let's chat about it. <i class="icon fas fa-comments"></i></p>
+        <img class="place-image" src="pic.webp" alt="X Place">
+        <p>Hey Leticia, I've been thinking it would be amazing to spend some time together. How about we go to watch Bad Boys? I heard it's really nice!</p>
+        <button onclick="openWhatsApp('Yes! I will go out with you')"><i class="icon fas fa-heart"></i> Yes!</button>
+        <div class="footer">
+            <button class="chat-button" onclick="openWhatsApp('Let\'s chat about it!')"><i class="icon fas fa-comments"></i> Not sure yet? Let's chat about it.</button>
+        </div>
     </div>
+    <script>
+        function openWhatsApp(message) {
+            const phoneNumber = '96896575078';
+            const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+            window.open(url, '_blank');
+        }
+    </script>
 </body>
 </html>
